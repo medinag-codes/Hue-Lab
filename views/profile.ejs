@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+    <title>Personalized Foundation Mix</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1>Profile Page</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+        <!-- LOCAL INFORMATION -->
+        <div class="col-sm-6">
+            <div class="well">
+                <h3><span class="fa fa-user"></span> Local</h3>
+
+                <% if (user.local.email) { %>
+                    <p>
+                        <strong>id</strong>: <%= user._id %><br>
+                        <strong>email</strong>: <%= user.local.email %><br>
+                        <strong>password</strong>: <%= user.local.password %>
+                    </p>
+
+                    <a href="/unlink/local" class="btn btn-default">Unlink</a>
+                <% } else { %>
+                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                <% } %>
+
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <h2>Place your face in the center of the outline and click "Capture Color"</h2>
+            <div id="camera-wrapper">
+                <video id="video" autoplay></video>
+                <div id="face-outline"></div>
+              </div>
+            <button class="captureBtn">Capture Color</button>
+        
+            <h2>Open the eyedropper and select a pixel that best represents your skintone</h2>
+            <canvas id="picture"></canvas>
+            
+            <!-- <button id="start-button">Open the eyedropper</button> 
+            <span id="result"></span> -->
+
+            <h1>Pick a color for your foundation formula</h1>
+            <button id="pickColor">Pick Color</button>
+
+            <div id="swatch"></div>
+            <h2>Formula</h2>
+            <pre id="formula"></pre>
+            
+            <% if (user.local.email) { %>
+            <form action="/formula" method="POST">
+                <input type="text" placeholder="Shade Name" name="name">
+                <button type="submit">Submit</button>
+            </form>
+            <% } %>
+        </div>
+<script src="https://unpkg.com/chroma-js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
