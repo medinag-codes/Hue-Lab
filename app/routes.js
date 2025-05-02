@@ -7,16 +7,31 @@ module.exports = function(app, passport, db) {
         res.render('index.ejs');
     });
 
-    // PROFILE SECTION =========================
-    app.get('/profile', isLoggedIn, function(req, res) {
-        db.collection('bill').find().toArray((err, result) => {
+    // HOME SECTION =========================
+    app.get('/home', isLoggedIn, function(req, res) {
+        db.collection('formula').find().toArray((err, result) => {
           if (err) return console.log(err)
-          res.render('profile.ejs', {
+          res.render('home.ejs', {
             user : req.user,
-            messages: result
+            formula: result
           })
         })
     });
+
+    // PROFILE SECTION =========================
+    app.get('/profile', isLoggedIn, function(req, res) {
+      db.collection('formula').find({email: req.user.local.email}).toArray((err, result) => {
+        if (err) return console.log(err)
+          if (result.length < 1){
+            res.redirect('/home')
+          }
+        res.render('profile.ejs', {
+          user : req.user,
+          formulas: result
+        })
+      })
+  });
+
 
     // LOGOUT ==============================
     app.get('/logout', function(req, res) {
@@ -28,44 +43,21 @@ module.exports = function(app, passport, db) {
 
 // formula routes ===============================================================
 
-    app.post('/formula', (req, res) => {
-      db.collection('formula').save({name: req.body.name, hex: req.body.hex, formula: req.body.formula}, (err, result) => {
-        if (err) return console.log(err)
-        console.log('saved to database')
-        res.redirect('/profile')
-      })
-    })
+app.post('/formula',(req, res) => {
+  db.collection('formula').save({email: req.body.email, name: req.body.name, hex: req.body.hex, formula: req.body.formula, createdAt: new Date()}, (err, result) => {
+    if (err) return console.log(err)
+    console.log('saved to database')
+    // res.redirect('/profile')
+    res.send('formula saved')
+  })
+})
 
-    app.post('/save', async (req, res) => {
-      const { hex, rgb, formula } = req.body;
-      db.collection('formula').save({hex: req.hex, rgb: req.rgb, formula: req.formula}, (err, result) => {
-        if (err) return console.log(err)
-        console.log('saved to database')
-        res.redirect('/profile')
-      })
+  app.delete('/formula', (req, res) => {
+    db.collection('formula').findOneAndDelete({email: req.body.email, name: req.body.name, hex: req.body.hex, formula: req.body.formula, createdAt: new Date()}, (err, result) => {
+      if (err) return res.send(500, err)
+      res.send('Bill deleted!')
     })
-
-    app.put('/formula', (req, res) => {
-      db.collection('formula')
-      .findOneAndUpdate({name: req.body.name, hex: req.body.hex, formula: req.body.formula}, {
-        $set: {
-          thumbUp:req.body.thumbUp + 1
-        }
-      }, {
-        sort: {_id: -1},
-        upsert: true
-      }, (err, result) => {
-        if (err) return res.send(err)
-        res.send(result)
-      })
-    })
-
-    app.delete('/formula', (req, res) => {
-      db.collection('formula').findOneAndDelete({name: req.body.name, hex: req.body.hex, formula: req.body.formula}, (err, result) => {
-        if (err) return res.send(500, err)
-        res.send('Bill deleted!')
-      })
-    })
+  })
 
 // =============================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================
@@ -80,7 +72,8 @@ module.exports = function(app, passport, db) {
 
         // process the login form
         app.post('/login', passport.authenticate('local-login', {
-            successRedirect : '/profile', // redirect to the secure profile section
+          //if user already has an account, profile runs the logic to check if they have less than one formula
+            successRedirect : '/profile', // redirect to the secure home section
             failureRedirect : '/login', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));
@@ -93,7 +86,8 @@ module.exports = function(app, passport, db) {
 
         // process the signup form
         app.post('/signup', passport.authenticate('local-signup', {
-            successRedirect : '/profile', // redirect to the secure profile section
+          //if user is signing up, take them to the home page
+            successRedirect : '/home', // redirect to the secure home section
             failureRedirect : '/signup', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));
@@ -111,7 +105,7 @@ module.exports = function(app, passport, db) {
         user.local.email    = undefined;
         user.local.password = undefined;
         user.save(function(err) {
-            res.redirect('/profile');
+            res.redirect('/home');
         });
     });
 
