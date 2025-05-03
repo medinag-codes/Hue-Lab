@@ -7,11 +7,11 @@ module.exports = function(app, passport, db) {
         res.render('index.ejs');
     });
 
-    // HOME SECTION =========================
-    app.get('/home', isLoggedIn, function(req, res) {
+    // FORMULATION SECTION =========================
+    app.get('/formulation', isLoggedIn, function(req, res) {
         db.collection('formula').find().toArray((err, result) => {
           if (err) return console.log(err)
-          res.render('home.ejs', {
+          res.render('formulation.ejs', {
             user : req.user,
             formula: result
           })
@@ -23,7 +23,7 @@ module.exports = function(app, passport, db) {
       db.collection('formula').find({email: req.user.local.email}).toArray((err, result) => {
         if (err) return console.log(err)
           if (result.length < 1){
-            res.redirect('/home')
+            res.redirect('/formulation')
           }
         res.render('profile.ejs', {
           user : req.user,
@@ -73,7 +73,7 @@ app.post('/formula',(req, res) => {
         // process the login form
         app.post('/login', passport.authenticate('local-login', {
           //if user already has an account, profile runs the logic to check if they have less than one formula
-            successRedirect : '/profile', // redirect to the secure home section
+            successRedirect : '/profile', // redirect to the secure profile section
             failureRedirect : '/login', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));
@@ -86,8 +86,8 @@ app.post('/formula',(req, res) => {
 
         // process the signup form
         app.post('/signup', passport.authenticate('local-signup', {
-          //if user is signing up, take them to the home page
-            successRedirect : '/home', // redirect to the secure home section
+          //if user is signing up, take them to the formulation page
+            successRedirect : '/formulation', // redirect to the secure formulation section
             failureRedirect : '/signup', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));
@@ -105,7 +105,7 @@ app.post('/formula',(req, res) => {
         user.local.email    = undefined;
         user.local.password = undefined;
         user.save(function(err) {
-            res.redirect('/home');
+            res.redirect('/formulation');
         });
     });
 
