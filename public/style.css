@@ -1,14 +1,16 @@
 *{
   padding: 0;
   margin: 0;
-  font-family: 'Times New Roman', Times, serif;
+  font-family:Arial, Helvetica, sans-serif;
   box-sizing: border-box;
 }
 
 body{
-  padding-top:80px;
   word-wrap:break-word;
-  font-family: 'Segoe UI', sans-serif;
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .hidden{
@@ -27,6 +29,53 @@ body{
   max-width: 300px;
 }
 
+header{
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+#discount{
+  padding: 5px;
+  height: 25px;
+  background-color: burlywood;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+padding: 5px;
+}
+
+#logo{
+  width: 15%;
+}
+
+nav ul{
+  display: flex;  
+  gap: 25px;
+}
+
+nav li{
+  width: auto;
+  height: auto;
+  font-size: 25px;
+  color: pink;
+}
+
+#title{
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 ul{
   display: grid;
   grid-template-columns: auto auto auto auto;
@@ -41,6 +90,18 @@ li{
   text-align: center;
 }
 
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#logoutBtn{
+  width: 15%;
+  align-self: flex-end;
+}
+
 .btn, .btn-pink {
   background-color: #ffc1cc;
   border: none;
@@ -52,8 +113,8 @@ li{
 
 #camera-wrapper {
   position: relative;
-  width: 300px;
-  height: 350px;
+  width: 500px;
+  height: 600px;
 }
 
 #video {
