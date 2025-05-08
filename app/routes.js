@@ -7,6 +7,17 @@ module.exports = function(app, passport, db) {
         res.render('index.ejs');
     });
 
+    app.get('/about', function(req, res) {
+      res.render('about.ejs');
+  });
+
+  app.get('/shop', function(req, res) {
+    res.render('shop.ejs');
+});
+
+app.get('/support', function(req, res) {
+  res.render('support.ejs');
+});
     // FORMULATION SECTION =========================
     app.get('/formulation', isLoggedIn, function(req, res) {
         db.collection('formula').find().toArray((err, result) => {
