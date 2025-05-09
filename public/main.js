@@ -1,4 +1,3 @@
-var trash = document.getElementsByClassName("fa-trash");
 const video = document.getElementById('video');
 const picture = document.getElementById('picture');
 
@@ -37,7 +36,7 @@ async function pickColor() {
     hex = result.sRGBHex;
     document.getElementById('swatch').style.backgroundColor = hex;
     rgb = hexToRgb(hex);
-    video.srcObject = null
+    // video.srcObject = null
   } catch (err) {
     console.error(err);
   }
@@ -106,27 +105,3 @@ function hexToRgb(hex) {
   const b = bigint & 255;
   return [r, g, b];
 }
-
-// function to delete formula from database
-
-// document.querySelector('#deleteBtn').addEventListener('click',deleteFormula)
-
-// function deleteFormula(){
-  
-
-//   fetch('/formuula', {
-//     method: 'delete',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify({
-//       'email': email,
-//       'name' : name,
-//       'hex': hex,
-//       'formula': formula
-//       'isDeleted' : true
-//     })
-//   }).then(function (response) {
-//     window.location.reload()
-//   })
-// }

@@ -239,6 +239,22 @@ li a{
   margin-top:10px; 
   border:1px solid black;
 }
+/* Home */
+.titleSection{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 10%;
+  padding-left: 5%;
+}
+
+.titleSection button{
+  width: 50%;
+}
+
+#homeNav #buttonContainer{
+  width: 15%;
+}
 
 /* About Us */
 #contentContainer{

@@ -62,13 +62,21 @@ app.post('/formula',(req, res) => {
   })
 })
 
-  app.delete('/formula', (req, res) => {
-    db.collection('formula').findOneAndDelete({email: req.body.email, name: req.body.name, hex: req.body.hex, formula: req.body.formula, isDeleted:true, createdAt: new Date()}, (err, result) => {
-      if (err) return res.send(500, err)
-      res.send('Formula deleted!')
-    })
+app.put('/formula', (req, res) => {
+  console.log(req.body)
+  db.collection('formula')
+  .findOneAndUpdate({name: req.body.name}, {
+    $set: {
+      isDeleted: true
+    }
+  }, {
+    sort: {_id: -1},
+    upsert: true
+  }, (err, result) => {
+    if (err) return res.send(err)
+    res.send(result)
   })
-
+})
 // =============================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================
 // =============================================================================

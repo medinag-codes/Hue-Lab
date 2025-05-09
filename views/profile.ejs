@@ -56,14 +56,13 @@
         <span id="yourFormulas">
             <ul id="formulaList">
                 <% for( let i = 0; i < formulas.length; i++ ) { %>
-                <a href="">
+                  <% if (formulas[i].isDeleted == false){ %>
                   <li style="background-color: <%= formulas[i].hex %> ;">
                     <p><%= formulas[i].name %></p>
-                      <button class="btn btn-primary fa" type="submit">Order</button>
-                      <button class="btn btn-primary fa fa-trash" type="submit"></button>
-                    </form>
+                    <button class="btn btn-primary fa" type="submit">Order</button>
+                    <button class="btn btn-primary fa fa-trash" type="submit"></button>
                   </li>
-                </a>
+                  <% } %>
                 <% } %>
             </ul>
         </span>
@@ -71,6 +70,6 @@
     <a class="btn btn-sm" href="/formulation">Get a new Formula</a>
   </div>
   <script src="https://unpkg.com/chroma-js"></script>
-  <script src="main.js"></script>
+  <script src="formula.js"></script>
 </body>
 </html>
