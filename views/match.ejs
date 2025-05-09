@@ -32,34 +32,12 @@
       <h1>Formulation Page</h1>
     </div>
   </header>
-  <div class="formulationContainer">
-     <!-- camera to capture hex color from skin -->
-      <div class="cameraContainer">
-        <h2 class="mb-3">Capture Your Skin Tone</h2>
-
-        <div id="camera-wrapper">
-          <video id="video" autoplay></video>
-          <div id="face-outline"></div>
-        </div>
-
-        <button class="btn btn-pink captureBtn">Capture Image</button>
-      </div>
-        <!-- eyedropper tool to select the pixel to determine your formula from -->
-      <div >
+    <div >
         <h3>Pick a color using the eyedropper</h3>
         <canvas id="picture"></canvas>
         
         <button class="btn btn-pink" id="pickColor">Pick Color</button>
-
-        <div id="swatch"></div>
-        <p>Are you happy with your swatch? If not, select a new color.</p>
-
-        <h3>Give your formula a name</h3>
-        <input id="shadeName" type="text" value="" placeholder="Shade Name i.e Caramel Cutie">
-
-        <button id="formulate" type="submit" class="btn btn-pink">Formulate</button>
     </div>
-  </div>
   <script src="https://unpkg.com/chroma-js"></script>
   <script src="/main.js"></script>
 </body>

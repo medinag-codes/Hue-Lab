@@ -2,7 +2,7 @@ module.exports = function(app, passport, db) {
 
 // normal routes ===============================================================
 
-    // show the home page (will also have our login links)
+    // show each page (will also have our login/logout links)
     app.get('/', function(req, res) {
         res.render('index.ejs');
     });
@@ -11,13 +11,13 @@ module.exports = function(app, passport, db) {
       res.render('about.ejs');
   });
 
-  app.get('/shop', function(req, res) {
-    res.render('shop.ejs');
-});
+    app.get('/shop', function(req, res) {
+      res.render('shop.ejs');
+  });
 
-app.get('/support', function(req, res) {
-  res.render('support.ejs');
-});
+  app.get('/support', function(req, res) {
+    res.render('support.ejs');
+  });
     // FORMULATION SECTION =========================
     app.get('/formulation', isLoggedIn, function(req, res) {
         db.collection('formula').find().toArray((err, result) => {
@@ -43,7 +43,6 @@ app.get('/support', function(req, res) {
       })
   });
 
-
     // LOGOUT ==============================
     app.get('/logout', function(req, res) {
         req.logout(() => {
@@ -55,7 +54,7 @@ app.get('/support', function(req, res) {
 // formula routes ===============================================================
 
 app.post('/formula',(req, res) => {
-  db.collection('formula').save({email: req.body.email, name: req.body.name, hex: req.body.hex, formula: req.body.formula, createdAt: new Date()}, (err, result) => {
+  db.collection('formula').save({email: req.body.email, name: req.body.name, hex: req.body.hex, formula: req.body.formula, isDeleted: false, createdAt: new Date()}, (err, result) => {
     if (err) return console.log(err)
     console.log('saved to database')
     // res.redirect('/profile')
@@ -64,9 +63,9 @@ app.post('/formula',(req, res) => {
 })
 
   app.delete('/formula', (req, res) => {
-    db.collection('formula').findOneAndDelete({email: req.body.email, name: req.body.name, hex: req.body.hex, formula: req.body.formula, createdAt: new Date()}, (err, result) => {
+    db.collection('formula').findOneAndDelete({email: req.body.email, name: req.body.name, hex: req.body.hex, formula: req.body.formula, isDeleted:true, createdAt: new Date()}, (err, result) => {
       if (err) return res.send(500, err)
-      res.send('Bill deleted!')
+      res.send('Formula deleted!')
     })
   })
 
