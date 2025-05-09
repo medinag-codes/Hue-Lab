@@ -16,7 +16,7 @@
       <p>Receive 10% off your first order & Free Shipping on orders over $50!</p>
     </div>
     <nav>
-      <img id="logo" src="/img/logo.png">
+      <img id="logo" src="/img/logo-removebg.png">
       <ul class="pt-2">
         <li><a href="/">Home</a></li>
         <li><a href="/about">About Us</a></li>
@@ -35,25 +35,22 @@
       <div class="hidden col-sm-6">
         <div class="well">
             <h3><span class="fa fa-user"></span> Local</h3>
-  
             <% if (user.local.email) { %>
                 <p>
                     <strong>id</strong>: <%= user._id %><br>
                     <strong>email</strong>: <span id="email"><%= user.local.email %></span><br>
                     <strong>password</strong>: <%= user.local.password %>
                 </p>
-  
                 <a href="/unlink/local" class="btn btn-default">Unlink</a>
             <% } else { %>
                 <a href="/connect/local" class="btn btn-default">Connect Local</a>
             <% } %>
-  
         </div>
     </div>
   </header>
   <div class="formulationContainer">
      <!-- camera to capture hex color from skin -->
-      <div class="cameraContainer">
+      <div  id="cameraContainer">
         <h2 class="mb-3">Find Your Shade</h2>
 
         <div id="camera-wrapper">
@@ -64,20 +61,22 @@
         <button class="btn btn-pink captureBtn">Capture Image</button>
       </div>
         <!-- eyedropper tool to select the pixel to determine your formula from -->
-      <div >
+      <div class="hidden" id="matchContainer">
         <h3>Pick a color using the eyedropper</h3>
         <canvas id="picture"></canvas>
         
         <button class="btn btn-pink" id="pickColor">Pick Color</button>
-
+      </div>
+      
+      <div class="hidden" id="swatchContainer">
         <div id="swatch"></div>
         <p>Are you happy with your swatch? If not, select a new color.</p>
-
+      
         <h3>Give your formula a name</h3>
         <input id="shadeName" type="text" value="" placeholder="Shade Name i.e Caramel Cutie">
 
         <button id="formulate" type="submit" class="btn btn-pink">Formulate</button>
-    </div>
+      </div>
   </div>
   <script src="https://unpkg.com/chroma-js"></script>
   <script src="/main.js"></script>

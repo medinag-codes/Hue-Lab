@@ -1,3 +1,4 @@
+
 const video = document.getElementById('video');
 const picture = document.getElementById('picture');
 
@@ -15,16 +16,20 @@ if(navigator.mediaDevices.getUserMedia){
         .catch (function (error){
             console.log("Something went wrong!")
         })
+        document.querySelector('#swatchContainer').classList.add('hidden')
     }
 //capture picture from video and draw it in the canvas
 document.querySelector('.captureBtn').addEventListener('click', captureColor)      
 function captureColor() {
 ctx.drawImage(video, 0, 0, picture.width, picture.height);
+document.querySelector('#camera-wrapper').classList.add('hidden')
+document.querySelector('#matchContainer').classList.remove('hidden')
 }
 //open eye dropper tool and select a pigment from skin
 document.querySelector('#pickColor').addEventListener('click', pickColor)
 
 async function pickColor() {
+  
   if (!window.EyeDropper) {
     alert('Your browser does not support EyeDropper API.');
     return;
@@ -37,6 +42,8 @@ async function pickColor() {
     document.getElementById('swatch').style.backgroundColor = hex;
     rgb = hexToRgb(hex);
     // video.srcObject = null
+    document.querySelector('#swatchContainer').classList.remove('hidden')
+    document.querySelector('#matchContainer').classList.add('hidden')
   } catch (err) {
     console.error(err);
   }
