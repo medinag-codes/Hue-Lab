@@ -4,25 +4,75 @@
   box-sizing: border-box;
 }
 
-.anton-regular {
-  font-family: "Anton", sans-serif;
+.zilla-slab-light {
+  font-family: "Zilla Slab", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.zilla-slab-regular {
+  font-family: "Zilla Slab", serif;
   font-weight: 400;
   font-style: normal;
 }
-.playfair-display{
-  font-family: "Playfair Display", serif;
-  font-optical-sizing: auto;
+
+.zilla-slab-medium {
+  font-family: "Zilla Slab", serif;
   font-weight: 500;
   font-style: normal;
 }
+
+.zilla-slab-semibold {
+  font-family: "Zilla Slab", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.zilla-slab-bold {
+  font-family: "Zilla Slab", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.zilla-slab-light-italic {
+  font-family: "Zilla Slab", serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.zilla-slab-regular-italic {
+  font-family: "Zilla Slab", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.zilla-slab-medium-italic {
+  font-family: "Zilla Slab", serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.zilla-slab-semibold-italic {
+  font-family: "Zilla Slab", serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.zilla-slab-bold-italic {
+  font-family: "Zilla Slab", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+
 body{
   word-wrap:break-word;
   display: flex; 
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: "Playfair Display SC";
-  font-weight: 500;
+  font-family: "Zilla Slab";
+
 }
 
 .hidden{
@@ -128,7 +178,7 @@ nav ul{
 nav li{
   width: auto;
   height: auto;
-  font-size: 25px;
+  font-size: 20px;
   color: pink;
 }
 
@@ -139,13 +189,11 @@ nav li{
   align-items: center;
   background-image: url(img/titleBackground.png);
   background-size: cover;
-  font-family: "Playfair Display SC";
+  text-shadow: 1px 1px 5px whtie;
 }
 
 #title h1{
   font-size: 3rem;
-  font-weight: 600;
-  text-shadow: 1px 1px 3px white;
 }
 #imgSection{
   width: 100%;
@@ -187,6 +235,7 @@ li a{
   justify-content: center;
   align-items: center;
   margin:0;
+  padding:0;
 }
 
 #logoutBtn{
