@@ -29,34 +29,28 @@ body{
   display: none;
 }
 
-.jumbotron {
-  background-color: #fce4ec;
-  color: black ;
-  padding: 3rem 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-}
-
-.jumbotron img{
-  max-width: 300px;
-}
-
 header{
   width: 100%;
   height: 250px;
   display: flex;
   flex-direction: column;
 }
+/* index.ejs */
 #mainHeader{
   height: 79px;
 }
 
 #mainContainer{
   width: 100%;
-  height: 600px;
+  height: 550px;
   padding: 0;
   margin: 0;
   background-color:rgb(249,227,206);
+}
+
+#mainContainer img{
+  height: 500px;
+  float: right;
 }
 
 #descriptionContainer{
@@ -122,6 +116,8 @@ nav{
 
 #logo{
   width: 10%;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 nav ul{
@@ -242,4 +238,52 @@ li a{
   height:100px; 
   margin-top:10px; 
   border:1px solid black;
+}
+ /* Login / Signup */
+
+
+/* About Us */
+#contentContainer{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+/* Customer Support */
+
+#formContainer{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color:#fce4ec;
+  border-radius: 10px;
+  box-shadow: 10px 5px 10px pink;
+  padding: 20px;
+}
+
+#hueLabImg{
+  height: 300px;
+  width: 300px;;
+}
+
+#contactForm{
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
+}
+
+#contactForm input{
+  height: 50px;
+}
+
+#contactForm textarea{
+  height: 250px;
 }

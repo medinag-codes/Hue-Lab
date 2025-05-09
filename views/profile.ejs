@@ -38,7 +38,8 @@
             <ul id="formulaList">
                 <% for( let i = 0; i < formulas.length; i++ ) { %>
                 <a href=""><li style="background-color: <%= formulas[i].hex %> ;">
-                    <%= formulas[i].name %>
+                    <p><%= formulas[i].name %></p>
+                    <button>Delete</button>
                 </li></a>
                 <% } %>
             </ul>
