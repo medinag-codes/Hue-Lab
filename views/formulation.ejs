@@ -70,8 +70,17 @@
       
       <div class="hidden" id="swatchContainer">
         <div id="swatch"></div>
-        <p>Are you happy with your swatch? If not, select a new color.</p>
-      
+        <p id="hexLabel"></p>
+        <!-- show their hex shade and see if anything in the database matches -->
+        <!-- <h3>Your Perfect Shade is: <formula.hex %></h3>
+        <p>
+          < for( let i = 0; i < formulas.length; i++ ) { %>
+            < formulas[i].favorite == formula.hex %>
+          < } %>
+        </p> -->
+      </div>
+
+      <div class="hidden" id="nameContainer">
         <h3>Give your formula a name</h3>
         <input id="shadeName" type="text" value="" placeholder="Shade Name i.e Caramel Cutie">
 

@@ -34,15 +34,20 @@ async function pickColor() {
     alert('Your browser does not support EyeDropper API.');
     return;
   }
-
   const eyeDropper = new EyeDropper();
   try {
     const result = await eyeDropper.open();
     hex = result.sRGBHex;
     document.getElementById('swatch').style.backgroundColor = hex;
     rgb = hexToRgb(hex);
-    // video.srcObject = null
+
+    // Show the hex value to the user
+    let hexLabel = document.getElementById('hexLabel');
+    hexLabel.textContent = `Your shade: ${hex}`;
+
+    //hide the matchContainer and show the swatchContainer and nameContainer
     document.querySelector('#swatchContainer').classList.remove('hidden')
+    document.querySelector('#nameContainer').classList.remove('hidden')
     document.querySelector('#matchContainer').classList.add('hidden')
   } catch (err) {
     console.error(err);

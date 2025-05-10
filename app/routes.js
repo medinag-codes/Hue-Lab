@@ -19,6 +19,16 @@ module.exports = function(app, passport, db) {
     res.render('support.ejs');
   });
     // FORMULATION SECTION =========================
+  //   app.get('/formulation', isLoggedIn, function(req, res) {
+  //     db.collection('formula').find({hex: req.body.hex}).toArray((err, result) => {
+  //       if (err) return console.log(err)
+  //       res.render('formulation.ejs', {
+  //         user : req.user,
+  //         formula: result
+  //       })
+  //     })
+  // });
+
     app.get('/formulation', isLoggedIn, function(req, res) {
         db.collection('formula').find().toArray((err, result) => {
           if (err) return console.log(err)

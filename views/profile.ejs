@@ -69,11 +69,16 @@
             <ul id="formulaList">
                 <% for( let i = 0; i < formulas.length; i++ ) { %>
                   <% if (formulas[i].isDeleted == false){ %>
-                  <li style="background-color: <%= formulas[i].hex %> ;">
-                    <p><%= formulas[i].name %></p>
-                    <button class="btn btn-primary fa fa-star" type="submit"></button>
-                    <button class="btn btn-primary fa" type="submit">Order</button>
-                    <button class="btn btn-primary fa fa-trash" type="submit"></button>
+                  <li class="formulaTiles" style="background-color: <%= formulas[i].hex %> ;">
+                    <div>
+                      <p><%= formulas[i].name %></p>
+                      <p><%= formulas[i].hex %></p>
+                    </div>
+                    <div class="iconsContainer">
+                      <button class="btn btn-primary fa fa-star" type="submit"></button>
+                      <button class="btn btn-primary fa" type="submit">Order</button>
+                      <button class="btn btn-primary fa fa-trash" type="submit"></button>
+                    </div>
                   </li>
                   <% } %>
                 <% } %>

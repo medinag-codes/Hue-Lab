@@ -5,7 +5,7 @@ console.log(trash)
 Array.from(trash).forEach(function(element) {
   element.addEventListener('click', function(e){
     e.preventDefault()
-    const name = this.parentNode.childNodes[1].innerText
+    const name = this.parentNode.childNodes[1].childNodes[1].innerText
     // const hex = 
     console.log(name)
   
