@@ -96,7 +96,8 @@ function saveFormula(){
       'name' : name,
       'hex': hex,
       'formula': formula,
-      'isDeleted' : false
+      'isDeleted' : false,
+      'favorite': false
     })
   }).then(data => {
     console.log(data)

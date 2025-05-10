@@ -133,6 +133,13 @@ header{
   flex-direction: column;
 }
 
+/* footer{
+  height: 300px;
+  width: 100%;
+  background-color: black;
+  color: white;
+} */
+
 ul{
   display: grid;
   grid-template-columns: auto auto auto auto;
@@ -170,8 +177,12 @@ li a{
   background: radial-gradient(circle,rgba(255, 255, 255, 1) 0%, rgba(247, 225, 227, 1) 81%, rgba(255, 192, 203, 1) 100%);
 }
 
-.titleSection{
+#mainTop{
   height: 80%;
+  display: flex;
+}
+.titleSection{
+  width: 70%;
   display: flex;
   flex-direction: column;
   padding: 25px 50px;
@@ -179,6 +190,15 @@ li a{
 
 .titleSection button{
   width: 15%;
+}
+
+.imageSection{
+  height: 100%; 
+  width: 30%;
+}
+
+.imageSection img{
+  height: 100%;
 }
 
 #descriptionBanner{

@@ -42,46 +42,46 @@
             <a href="/unlink/local" class="btn btn-default">Unlink</a>
             <% if (user.local.email) { %>
                 <p>
-                    <span class="hidden"><strong>id</strong>: <%= user._id %><br></span>
-                    <span class="hidden"><strong>password</strong>: <%= user.local.password %></span>
-                    <strong>email</strong>: <span id="email"><%= user.local.email %></span><br>
-                    <strong>number of formulas</strong>: <span id="numOfFormulas"></span><br>
-                    <strong>favorite Formula</strong>: <span id="">
-                      <div id="favoriteFormula">
-                      <% for( let i = 0; i < formulas.length; i++ ) { %>
-                        <% if (formulas[i].favorite == true){ %>
-                        <li class="formulaTiles" style="background-color: <%= formulas[i].hex %> ;">
-                          <div class="infoContainer">
-                            <p><%= formulas[i].name %></p>
-                            <p><%= formulas[i].hex %></p>
-                          </div>
-                          <div class="iconsContainer">
-                            <button class="btn btn-primary fa fa-star" type="submit"></button>
-                            <button class="btn btn-primary fa" type="submit">Order</button>
-                            <button class="btn btn-primary fa fa-trash" type="submit"></button>
-                          </div>
-                        </li>
-                        <% } %>
-                      <% } %>
-                      </div>
-                    </span><br>
+                  <span class="hidden"><strong>id</strong>: <%= user._id %><br></span>
+                  <span class="hidden"><strong>password</strong>: <%= user.local.password %></span>
+                  <strong>email</strong>: <span id="email"><%= user.local.email %></span><br>
+                  <strong>number of formulas</strong>: <span id="numOfFormulas"></span><br>
+                  <strong>favorite Formula</strong>: <span id="">
                     <div id="favoriteFormula">
-                  <% for( let i = 0; i < formulas.length; i++ ) { %>
-                    <% if (formulas[i].favorite == true){ %>
-                    <li class="formulaTiles" style="background-color: <%= formulas[i].hex %> ;">
-                      <div class="infoContainer">
-                        <p><%= formulas[i].name %></p>
-                        <p><%= formulas[i].hex %></p>
-                      </div>
-                      <div class="iconsContainer">
-                        <button class="btn btn-primary fa fa-star" type="submit"></button>
-                        <button class="btn btn-primary fa" type="submit">Order</button>
-                        <button class="btn btn-primary fa fa-trash" type="submit"></button>
-                      </div>
-                    </li>
+                    <% for( let i = 0; i < formulas.length; i++ ) { %>
+                      <% if (formulas[i].favorite == true){ %>
+                      <li class="formulaTiles" style="background-color: <%= formulas[i].hex %> ;">
+                        <div class="infoContainer">
+                          <p><%= formulas[i].name %></p>
+                          <p><%= formulas[i].hex %></p>
+                        </div>
+                        <div class="iconsContainer">
+                          <button class="btn btn-primary fa fa-star" type="submit"></button>
+                          <button class="btn btn-primary fa" type="submit">Order</button>
+                          <button class="btn btn-primary fa fa-trash" type="submit"></button>
+                        </div>
+                      </li>
+                      <% } %>
                     <% } %>
-                  <% } %>
-            </div>
+                    </div>
+                  </span><br>
+                  <div id="favoriteFormula">
+                    <% for( let i = 0; i < formulas.length; i++ ) { %>
+                      <% if (formulas[i].favorite == true){ %>
+                      <li class="formulaTiles" style="background-color: <%= formulas[i].hex %> ;">
+                        <div class="infoContainer">
+                          <p><%= formulas[i].name %></p>
+                          <p><%= formulas[i].hex %></p>
+                        </div>
+                        <div class="iconsContainer">
+                          <button class="btn btn-primary fa fa-star" type="submit"></button>
+                          <button class="btn btn-primary fa" type="submit">Order</button>
+                          <button class="btn btn-primary fa fa-trash" type="submit"></button>
+                        </div>
+                      </li>
+                      <% } %>
+                    <% } %>
+                  </div>
                 </p>
             <% } else { %>
                 <a href="/connect/local" class="btn btn-default">Connect Local</a>
@@ -90,33 +90,31 @@
       </div>
     </div>
     <div class="container">
-          
-          <h2>Your Formulas</h2>
-          <a class="btn btn-sm" href="/formulation">Get a new Formula</a>
-          <div id="yourFormulas">
-              <ul id="formulaList">
-                  <% for( let i = 0; i < formulas.length; i++ ) { %>
-                    <% if (formulas[i].isDeleted == false){ %>
-                    <li class="formulaTiles" style="background-color: <%= formulas[i].hex %> ;">
-                      <div class="infoContainer">
-                        <p><%= formulas[i].name %></p>
-                        <p><%= formulas[i].hex %></p>
-                      </div>
-                      <div class="iconsContainer">
-                        <button class="btn btn-primary fa fa-star" type="submit"></button>
-                        <button class="btn btn-primary fa" type="submit">Order</button>
-                        <button class="btn btn-primary fa fa-trash" type="submit"></button>
-                      </div>
-                    </li>
-                    <% } %>
-                  <% } %>
-              </ul>
-            </div>
+      <h2>Your Formulas</h2>
+      <a class="btn btn-sm" href="/formulation">New Formula</a>
+      <div id="yourFormulas">
+          <ul id="formulaList">
+              <% for( let i = 0; i < formulas.length; i++ ) { %>
+                <% if (formulas[i].isDeleted == false){ %>
+                <li class="formulaTiles" style="background-color: <%= formulas[i].hex %> ;">
+                  <div class="infoContainer">
+                    <p><%= formulas[i].name %></p>
+                    <p><%= formulas[i].hex %></p>
+                  </div>
+                  <div class="iconsContainer">
+                    <button class="btn btn-primary fa fa-star" type="submit"></button>
+                    <button class="btn btn-primary fa" type="submit">Order</button>
+                    <button class="btn btn-primary fa fa-trash" type="submit"></button>
+                  </div>
+                </li>
+                <% } %>
+              <% } %>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
   <script src="https://unpkg.com/chroma-js"></script>
-  <script src="path/to/chartjs/dist/chart.umd.js"></script>
   <script src="formula.js"></script>
 </body>
 </html>
