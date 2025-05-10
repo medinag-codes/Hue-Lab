@@ -11,45 +11,43 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <header>
-    <div id="discount" class="pt-4">
-      <p>Receive 10% off your first order & Free Shipping on orders over $50!</p>
+  <div id="discount" class="pt-4">
+    <p>Receive 10% off your first order & Free Shipping on orders over $50!</p>
+  </div>
+  <nav>
+    <img id="logo" src="/img/logo-removebg.png">
+    <ul class="pt-2">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About Us</a></li>
+      <li><a href="/profile">Profile</a></li>
+      <li><a href="/formulation">Formulation</a></li>
+      <li><a href="/contact">Contact Us</a></li>
+    </ul>
+    <div class="buttonContainer">
+      <a href="/profile" class="fa fa-user"></a>
+      <a href="/logout" class="btn btn-outline-light btn-sm" id="logoutBtn">Logout</a>
     </div>
-    <nav>
-      <img id="logo" src="/img/logo-removebg.png">
-      <ul class="pt-2">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/profile">Profile</a></li>
-        <li><a href="/formulation">Formulation</a></li>
-        <li><a href="/contact">Contact Us</a></li>
-      </ul>
-      <div class="buttonContainer">
-        <a href="/profile" class="fa fa-user"></a>
-        <a href="/logout" class="btn btn-outline-light btn-sm" id="logoutBtn">Logout</a>
+    <!-- add shopping cart -->
+  </nav>
+  <div class="" id="title">
+    <h1>Formulation</h1>
+  </div>
+  <div class="py-4">
+    <div class="hidden col-sm-6">
+      <div class="well">
+          <h3><span class="fa fa-user"></span> Local</h3>
+          <% if (user.local.email) { %>
+              <p>
+                  <strong>id</strong>: <%= user._id %><br>
+                  <strong>email</strong>: <span id="email"><%= user.local.email %></span><br>
+                  <strong>password</strong>: <%= user.local.password %>
+              </p>
+              <a href="/unlink/local" class="btn btn-default">Unlink</a>
+          <% } else { %>
+              <a href="/connect/local" class="btn btn-default">Connect Local</a>
+          <% } %>
       </div>
-      <!-- add shopping cart -->
-    </nav>
-    <div class="" id="title">
-      <h1>Formulation Page</h1>
-    </div>
-    <div class="hidden py-4">
-      <div class="hidden col-sm-6">
-        <div class="well">
-            <h3><span class="fa fa-user"></span> Local</h3>
-            <% if (user.local.email) { %>
-                <p>
-                    <strong>id</strong>: <%= user._id %><br>
-                    <strong>email</strong>: <span id="email"><%= user.local.email %></span><br>
-                    <strong>password</strong>: <%= user.local.password %>
-                </p>
-                <a href="/unlink/local" class="btn btn-default">Unlink</a>
-            <% } else { %>
-                <a href="/connect/local" class="btn btn-default">Connect Local</a>
-            <% } %>
-        </div>
-    </div>
-  </header>
+  </div>
   <div class="formulationContainer">
      <!-- camera to capture hex color from skin -->
       <div  id="cameraContainer">
@@ -73,6 +71,11 @@
       <div class="hidden" id="swatchContainer">
         <div id="swatch"></div>
         <p id="hexLabel"></p>
+
+        <p class="" id="matchResults">
+          <span id="name"></span>
+          <span id="formula"></span>
+        </p>
         <!-- show their hex shade and see if anything in the database matches -->
         <!-- <h3>Your Perfect Shade is: <formula.hex %></h3>
         <p>
@@ -89,7 +92,7 @@
         <button id="formulate" type="submit" class="btn btn-pink">Formulate</button>
       </div>
   </div>
-  <script src="https://unpkg.com/chroma-js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="/main.js"></script>
 </body>
 </html>

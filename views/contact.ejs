@@ -11,40 +11,38 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <header>
-    <div id="discount" class="pt-4">
-      <p>Receive 10% off your first order & Free Shipping on orders over $50!</p>
+  <div id="discount" class="pt-4">
+    <p>Receive 10% off your first order & Free Shipping on orders over $50!</p>
+  </div>
+  <nav>
+    <img id="logo" src="/img/logo-removebg.png">
+    <ul class="pt-2">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About Us</a></li>
+      <li><a href="/profile">Profile</a></li>
+      <li><a href="/formulation">Formulation</a></li>
+      <li><a href="/contact">Contact Us</a></li>
+    </ul>
+    <div class="buttonContainer">
+      <a href="/profile" class="fa fa-user"></a>
+      <a href="/logout" class="btn btn-outline-light btn-sm" id="logoutBtn">Logout</a>
     </div>
-    <nav>
-      <img id="logo" src="/img/logo-removebg.png">
-      <ul class="pt-2">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/profile">Profile</a></li>
-        <li><a href="/formulation">Formulation</a></li>
-        <li><a href="/contact">Contact Us</a></li>
-      </ul>
-      <div class="buttonContainer">
-        <a href="/profile" class="fa fa-user"></a>
-        <a href="/logout" class="btn btn-outline-light btn-sm" id="logoutBtn">Logout</a>
-      </div>
-      <!-- add shopping cart -->
-    </nav>
-    <div class="" id="title">
-      <h1>Contact Us</h1>
+    <!-- add shopping cart -->
+  </nav>
+  <div class="" id="title">
+    <h1>Contact Us</h1>
+  </div>
+  <div class="container">
+    <div id="formContainer">
+      <img id="hueLabImg" src="img/HueLab.jpeg">
+      <form id="contactForm">
+        <input id="name" type="text" placeholder="NAME">
+        <input id="email" type="text" placeholder="E-MAIL">
+        <textarea id="message" type="text" placeholder="MESSAGE"></textarea>
+        <input class="btn btn-pink" id="submit" type="submit" value="Submit">
+      </form>
     </div>
-  </header>
-    <div class="container">
-      <div id="formContainer">
-        <img id="hueLabImg" src="img/HueLab.jpeg">
-        <form id="contactForm">
-          <input id="name" type="text" placeholder="NAME">
-          <input id="email" type="text" placeholder="E-MAIL">
-          <textarea id="message" type="text" placeholder="MESSAGE"></textarea>
-          <input id="submit" type="submit" value="submit">
-        </form>
-      </div>
-    </div>
+  </div>
   <script src="https://unpkg.com/chroma-js"></script>
   <script src="main.js"></script>
 </body>

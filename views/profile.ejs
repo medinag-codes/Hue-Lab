@@ -9,36 +9,35 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <header>
-    <div id="discount" class="pt-4">
-      <p>Receive 10% off your first order & Free Shipping on orders over $50!</p>
+  <div id="discount" class="pt-4">
+    <p>Receive 10% off your first order & Free Shipping on orders over $50!</p>
+  </div>
+  <nav>
+    <img id="logo" src="/img/logo-removebg.png">
+    <ul class="pt-2">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About Us</a></li>
+      <li><a href="/profile">Profile</a></li>
+      <li><a href="/formulation">Formulation</a></li>
+      <li><a href="/contact">Contact Us</a></li>
+    </ul>
+    <div class="buttonContainer">
+      <a href="/profile" class="fa fa-user"></a>
+      <a href="/logout" class="btn btn-outline-light btn-sm" id="logoutBtn">Logout</a>
     </div>
-    <nav>
-      <img id="logo" src="/img/logo-removebg.png">
-      <ul class="pt-2">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/profile">Profile</a></li>
-        <li><a href="/formulation">Formulation</a></li>
-        <li><a href="/contact">Contact Us</a></li>
-      </ul>
-      <div class="buttonContainer">
-        <a href="/profile" class="fa fa-user"></a>
-        <a href="/logout" class="btn btn-outline-light btn-sm" id="logoutBtn">Logout</a>
-      </div>
-      <!-- add shopping cart -->
-    </nav>
-    <div class="" id="title">
-      <h1>Profile Page</h1>
-    </div>
-  </header>
-  <div class="pageContent">
+    <!-- add shopping cart -->
+  </nav>
+  <div class="" id="title">
+    <h1>Profile</h1>
+  </div>
+  <div class="container">
     <div class="profile">
       <div class="col-sm-6">
         <div>
-            <h3><span class="fa fa-user"></span> Profile</h3>
+            <h3><span class="fa fa-user"></span><% user.local.name %></h3>
             <a href="/unlink/local" class="btn btn-default">Unlink</a>
             <% if (user.local.email) { %>
                 <p>
@@ -52,8 +51,9 @@
                       <% if (formulas[i].favorite == true){ %>
                       <li class="formulaTiles" style="background-color: <%= formulas[i].hex %> ;">
                         <div class="infoContainer">
-                          <p><%= formulas[i].name %></p>
+                          <p id="name"><%= formulas[i].name %></p>
                           <p><%= formulas[i].hex %></p>
+                          
                         </div>
                         <div class="iconsContainer">
                           <button class="btn btn-primary fa fa-star" type="submit"></button>
@@ -65,23 +65,6 @@
                     <% } %>
                     </div>
                   </span><br>
-                  <div id="favoriteFormula">
-                    <% for( let i = 0; i < formulas.length; i++ ) { %>
-                      <% if (formulas[i].favorite == true){ %>
-                      <li class="formulaTiles" style="background-color: <%= formulas[i].hex %> ;">
-                        <div class="infoContainer">
-                          <p><%= formulas[i].name %></p>
-                          <p><%= formulas[i].hex %></p>
-                        </div>
-                        <div class="iconsContainer">
-                          <button class="btn btn-primary fa fa-star" type="submit"></button>
-                          <button class="btn btn-primary fa" type="submit">Order</button>
-                          <button class="btn btn-primary fa fa-trash" type="submit"></button>
-                        </div>
-                      </li>
-                      <% } %>
-                    <% } %>
-                  </div>
                 </p>
             <% } else { %>
                 <a href="/connect/local" class="btn btn-default">Connect Local</a>
@@ -98,12 +81,39 @@
                 <% if (formulas[i].isDeleted == false){ %>
                 <li class="formulaTiles" style="background-color: <%= formulas[i].hex %> ;">
                   <div class="infoContainer">
-                    <p><%= formulas[i].name %></p>
+                    <p id="name"><%= formulas[i].name %></p>
                     <p><%= formulas[i].hex %></p>
+                    <div>
+                      <canvas id="myChart"></canvas>
+                     
+
+<%let labels = formulas[i].formula.map(c=>c.pigment) %>
+<%let data = formulas[i].formula.map(c=>parseFloat(c.percent)) %>
+
+<%let chartData = {
+  labels: labels,
+  datasets: [{
+    // label: 'My First Dataset',
+    data: data,
+    backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)'
+    ],
+    hoverOffset: 4
+  }]
+};%>
+
+<% const config = {
+  type: 'pie',
+  data: chartData,
+};%>
+
+<p id="chartData" class="hidden"><%- JSON.stringify(config) %></p>
+                    </div>
                   </div>
                   <div class="iconsContainer">
                     <button class="btn btn-primary fa fa-star" type="submit"></button>
-                    <button class="btn btn-primary fa" type="submit">Order</button>
                     <button class="btn btn-primary fa fa-trash" type="submit"></button>
                   </div>
                 </li>
@@ -114,7 +124,7 @@
       </div>
     </div>
   </div>
-  <script src="https://unpkg.com/chroma-js"></script>
-  <script src="formula.js"></script>
+  
+  <script src="profile.js"></script>
 </body>
 </html>

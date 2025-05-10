@@ -15,15 +15,14 @@ module.exports = function(app, passport, db) {
     res.render('contact.ejs');
   });
     // FORMULATION SECTION =========================
-  //   app.get('/formulation', isLoggedIn, function(req, res) {
-  //     db.collection('formula').find({hex: req.body.hex}).toArray((err, result) => {
-  //       if (err) return console.log(err)
-  //       res.render('formulation.ejs', {
-  //         user : req.user,
-  //         formula: result
-  //       })
-  //     })
-  // });
+    app.get('/formula/:hex', isLoggedIn, function(req, res) {
+      db.collection('formula').find({hex: `#${req.params.hex}`}).toArray((err, result) => {
+        if (err) return console.log(err)
+        res.send(
+          JSON.stringify(result)
+        )
+      })
+  });
 
     app.get('/formulation', isLoggedIn, function(req, res) {
         db.collection('formula').find().toArray((err, result) => {

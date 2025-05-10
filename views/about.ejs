@@ -11,43 +11,41 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <header>
-    <div id="discount" class="pt-4">
-      <p>Receive 10% off your first order & Free Shipping on orders over $50!</p>
+  <div id="discount" class="pt-4">
+    <p>Receive 10% off your first order & Free Shipping on orders over $50!</p>
+  </div>
+  <nav>
+    <img id="logo" src="/img/logo-removebg.png">
+    <ul class="pt-2">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About Us</a></li>
+      <li><a href="/profile">Profile</a></li>
+      <li><a href="/formulation">Formulation</a></li>
+      <li><a href="/contact">Contact Us</a></li>
+    </ul>
+    <div class="buttonContainer">
+      <a href="/profile" class="fa fa-user"></a>
+      <a href="/logout" class="btn btn-outline-light btn-sm" id="logoutBtn">Logout</a>
     </div>
-    <nav>
-      <img id="logo" src="/img/logo-removebg.png">
-      <ul class="pt-2">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/profile">Profile</a></li>
-        <li><a href="/formulation">Formulation</a></li>
-        <li><a href="/contact">Contact Us</a></li>
-      </ul>
-      <div class="buttonContainer">
-        <a href="/profile" class="fa fa-user"></a>
-        <a href="/logout" class="btn btn-outline-light btn-sm" id="logoutBtn">Logout</a>
-      </div>
-      <!-- add shopping cart -->
-    </nav>
-    <div class="" id="title">
-      <h1>About Us</h1>
+    <!-- add shopping cart -->
+  </nav>
+  <div class="" id="title">
+    <h1>About Us</h1>
+  </div>
+  <div class="container">
+    <div id="contentContainer">
+      <img id="hueLabImg" src="img/HueLab.jpeg">
+      <p>Hue Lab was founded on a deeply personal realization: finding the right foundation shade shouldn't be a struggle. As someone with a diverse skintone, I often found myself standing in beauty aisles trying to mix two, sometimes even three, foundation colors just to create a shade that felt like mine. I realized I wasn’t alone and that the beauty industry still has a long way to go when it comes to inclusive shade ranges and personalized experiences. That frustration became the spark for innovation.</p>
+
+      <p>With a background in both chemistry and software engineering, I saw an opportunity to bridge science and beauty through technology. Hue Lab is a full-stack application that uses real-time color detection and cosmetic formulation principles to create a foundation formula that’s tailored to your unique skin tone. By analyzing your undertones and skin hue through your camera and pixel data, we craft a custom blend. No more guessing, no more compromises.</p>
+
+      <p>But Hue Lab is more than a tool, it's a statement. It's about creating a space in the beauty world that values precision, individuality, and inclusion. For too long, people with beautiful complexions have been underserved by generic “one-size-fits-most” offerings. Hue Lab changes that by giving users the ability to generate, name, and store their perfect match backed by cosmetic science and accessible tech.</p>
+
+      <p>Whether you're someone who has never found their true shade or simply curious about the power of personalization, Hue Lab is here to empower you with the tools to define your beauty, on your terms.</p>
+
+      <p>Your skin deserves more than a close match. It deserves a formula made just for you.</p>
     </div>
-  </header>
-    <div class="container">
-      <div id="contentContainer">
-        <img id="hueLabImg" src="img/HueLab.jpeg">
-        <p>Hue Lab was founded on a deeply personal realization: finding the right foundation shade shouldn't be a struggle. As someone with a diverse skintone, I often found myself standing in beauty aisles trying to mix two, sometimes even three, foundation colors just to create a shade that felt like mine. I realized I wasn’t alone and that the beauty industry still has a long way to go when it comes to inclusive shade ranges and personalized experiences. That frustration became the spark for innovation.</p>
-
-        <p>With a background in both chemistry and software engineering, I saw an opportunity to bridge science and beauty through technology. Hue Lab is a full-stack application that uses real-time color detection and cosmetic formulation principles to create a foundation formula that’s tailored to your unique skin tone. By analyzing your undertones and skin hue through your camera and pixel data, we craft a custom blend. No more guessing, no more compromises.</p>
-
-        <p>But Hue Lab is more than a tool, it's a statement. It's about creating a space in the beauty world that values precision, individuality, and inclusion. For too long, people with beautiful complexions have been underserved by generic “one-size-fits-most” offerings. Hue Lab changes that by giving users the ability to generate, name, and store their perfect match backed by cosmetic science and accessible tech.</p>
-
-        <p>Whether you're someone who has never found their true shade or simply curious about the power of personalization, Hue Lab is here to empower you with the tools to define your beauty, on your terms.</p>
-
-        <p>Your skin deserves more than a close match. It deserves a formula made just for you.</p>
-      </div>
-    </div>
+  </div>
   <script src="https://unpkg.com/chroma-js"></script>
   <script src="main.js"></script>
 </body>

@@ -1,13 +1,16 @@
+// const {Chart} = import('chart.js');
+
 var trash = document.querySelectorAll(".fa-trash");
 var favorite = document.querySelectorAll(".fa-star");
+
 console.log(trash)
 // function to delete formula from database
 
 Array.from(trash).forEach(function(element) {
   element.addEventListener('click', function(e){
     e.preventDefault()
-    const name = this.parentNode.childNodes[1].childNodes[1].innerText
-    console.log(name)
+    console.log(this)
+    const name = this.parentNode.parentNode.querySelector('#name').innerText
   
     fetch('/formula', {
       method: 'put',
@@ -42,3 +45,11 @@ Array.from(favorite).forEach(function(element) {
     })
   })
 })
+
+let formulaTiles = Array.from(document.querySelectorAll('.formulaTiles'))
+for(let i= 0; i < formulaTiles.length; i++){
+  const ctx = formulaTiles[i].querySelector('#myChart');
+  const config = JSON.parse(ctx.parentElement.querySelector('#chartData').innerText)
+  new Chart(ctx, config)
+}
+

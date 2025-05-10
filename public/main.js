@@ -1,11 +1,11 @@
 
 const video = document.getElementById('video');
 const picture = document.getElementById('picture');
-
 const canvas = document.getElementById('canvas');
 const ctx = picture.getContext('2d');
 let rgb = ""
 let hex = ""
+
 
 // 🎥 Start camera
 if(navigator.mediaDevices.getUserMedia){
@@ -22,7 +22,7 @@ if(navigator.mediaDevices.getUserMedia){
 document.querySelector('.captureBtn').addEventListener('click', captureColor)      
 function captureColor() {
 ctx.drawImage(video, 0, 0, picture.width, picture.height);
-document.querySelector('#camera-wrapper').classList.add('hidden')
+document.querySelector('#cameraContainer').classList.add('hidden')
 document.querySelector('#matchContainer').classList.remove('hidden')
 }
 //open eye dropper tool and select a pigment from skin
@@ -44,6 +44,30 @@ async function pickColor() {
     // Show the hex value to the user
     let hexLabel = document.getElementById('hexLabel');
     hexLabel.textContent = `Your shade: ${hex}`;
+
+
+console.log(hex)
+console.log(result.sRGBHex)
+hex = "#fcad82"
+const uri = '/formula/' + hex.replace("#", "")
+console.log(uri)
+    // fetch hex colors from MongDB and compare if hex is there
+ fetch(uri, {
+          method: 'get',
+
+          // headers: {
+          //   'Content-Type': 'application/json'
+          // },
+          // body: JSON.stringify({
+          //   'hex': hex
+          // })
+        }).then(res => res.json())
+          .then(function (data) {
+          console.log(data)
+          document.querySelector('#matchResults #name').innerText = data[0].name
+          document.querySelector('#matchResults #formula').innerText = data[0].formula.map(obj => JSON.stringify(obj))
+        })
+     
 
     //hide the matchContainer and show the swatchContainer and nameContainer
     document.querySelector('#swatchContainer').classList.remove('hidden')
