@@ -3,7 +3,7 @@
   margin: 0;
   box-sizing: border-box;
 }
-
+/* fonts */
 .zilla-slab-light {
   font-family: "Zilla Slab", serif;
   font-weight: 300;
@@ -63,93 +63,33 @@
   font-weight: 700;
   font-style: italic;
 }
-
-
+/* body and all pages styling */
 body{
   word-wrap:break-word;
   display: flex; 
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: "Zilla Slab";
-
+  font-family: Times, "Zilla Slab";
 }
 
 .hidden{
   display: none;
 }
 
-header{
+.fullPage{
   width: 100%;
-  height: 250px;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-}
-/* index.ejs */
-#mainHeader{
-  height: 79px;
-}
-
-#mainContainer{
-  width: 100%;
-  height: 550px;
-  padding: 0;
-  margin: 0;
-  background-color: rgb(249,227,206);
-}
-
-#mainContainer img{
-  height: 500px;
-  float: right;
-}
-
-#descriptionContainer{
-  width: 100%;
-  height: 600px;
-}
-
-#descriptionBanner{
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 50px;
-  background-color:  #fbccd5;
-  display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  font-size: 22px;
-}
-
-#descriptionBanner ul{
-  width: 100%;
-}
-
-#descriptionContainer li{
-  width: 100%;
-  height: 100%;
-  color: black;
-  display: flex;
-}
-
-#productSection{
-  height: 600px;
-  width: 100%;
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#howItWorks{
-  width: 95%;
-  height: 250px;
-  border-radius: 15px;
-  background-color: rgb(249,227,206);
 }
 
 #discount{
   padding: 5px;
   height: 25px;
-  background-color:rgb(249,227,206);
+  background-color:black;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -161,7 +101,8 @@ nav{
   display: flex;
   justify-content: space-between;
   padding: 5px;
-  background-color: #fbccd5;
+  background-color: white;
+  border-bottom: 1px solid gray;
 }
 
 #logo{
@@ -179,22 +120,116 @@ nav li{
   width: auto;
   height: auto;
   font-size: 20px;
-  color: pink;
-}
-
-#title{
-  height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url(img/titleBackground.png);
-  background-size: cover;
-  text-shadow: 1px 1px 5px whtie;
 }
 
 #title h1{
   font-size: 3rem;
 }
+
+header{
+  width: 100%;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+ul{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+li{
+  list-style: none;
+  text-align: center;
+}
+
+li a{
+  text-decoration: none;
+  color: black;
+}
+
+/* index.ejs */
+.buttonContainer{
+  width: 15%;
+}
+
+#mainHeader{
+  height: 79px;
+}
+
+#mainContainer{
+  width: 100%;
+  height: 100vh;
+  background-color:white;
+}
+
+#main{
+  height: 700px;
+  border-radius: 2%;
+  width: 100%;
+  background: radial-gradient(circle,rgba(255, 255, 255, 1) 0%, rgba(247, 225, 227, 1) 81%, rgba(255, 192, 203, 1) 100%);
+}
+
+.titleSection{
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  padding: 25px 50px;
+}
+
+.titleSection button{
+  width: 15%;
+}
+
+#descriptionBanner{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 20%;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px black;
+}
+
+#descriptionBanner ul{
+  width: 100%;
+}
+
+#descriptionBanner li{
+  height: 100%;
+  color: black;
+}
+
+#productSection{
+  height: 600px;
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#howItWorks{
+  width: 95%;
+  height: 250px;
+  border-radius: 15px;
+}
+
+/* section pages */
+#title{
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F7E1E3;
+  /* background-image: url(img/titleBackground.png); */
+  background-size: cover;
+  text-shadow: 1px 1px 5px white;
+}
+
 #imgSection{
   width: 100%;
   height: 300px;
@@ -211,24 +246,6 @@ nav li{
   height: 200px;
 }
 
-ul{
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-}
-
-li{
-  color: white;
-  width: 250px;
-  height: 250px;
-  list-style: none;
-  text-align: center;
-}
-
-li a{
-  text-decoration: none;
-  color: black;
-}
-
 .container{
   display: flex;
   flex-direction: column;
@@ -237,19 +254,26 @@ li a{
 }
 
 #logoutBtn{
-  width: 10%;
+  width: 50%;
   align-self: flex-end;
 }
 
 .btn, .btn-pink {
   background-color: #ffc1cc;
   border: none;
+  color: black;
 }
 
 .btn:hover, .btn-pink:hover {
   background-color: #e89ca9;
 }
 
+.pageContent{
+  width: 100%;
+  display: flex;
+  padding: 0 10px;
+}
+/* Formulation Page */
 #camera-wrapper {
   position: relative;
   width: 400px;
@@ -269,7 +293,7 @@ li a{
   left: 50%;
   width: 350px;
   height: 450px;
-  border: 3px dashed   #fbccd5;
+  border: 3px dashed  #F7E1E3;
   border-radius: 50% / 40%;
   transform: translate(-50%, -50%);
   pointer-events: none; 
@@ -287,23 +311,7 @@ li a{
   margin-top:10px; 
   border:1px solid black;
 }
-/* Home */
-.titleSection{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-top: 10%;
-  padding-left: 5%;
-}
 
-.titleSection button{
-  width: 50%;
-}
-
-#homeNav #buttonContainer{
-  width: 15%;
-}
-/* Formulation */
 .formulationContainer{
   width: 100%;
   height: 500px;
@@ -318,12 +326,30 @@ li a{
   justify-content: center;
   align-items: center;
 }
+
 /* Profile */
+.profile{
+  height: 500px;
+  width: 30%;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 5%;
+}
+.profile div{
+  width: 100%;
+}
+
+#formulaList{
+  gap: 10px;
+}
+
 .formulaTiles{
+  height: 200px;
+  width: 200px;
   display: flex;
   flex-direction: column;
-  justify-content: center; 
   align-items: center;
+  border-radius: 5%;
 }
 
 .formulaTiles p{
@@ -331,10 +357,16 @@ li a{
   margin: 0;
 }
 
+.infoContainer{
+  margin:20px 0 75px 0;
+}
+
 .iconsContainer{
   display: flex; 
   justify-content:space-between;
+  gap: 5px;
 }
+
 /* About Us */
 #contentContainer{
   width: 80%;
@@ -347,7 +379,7 @@ li a{
   padding: 20px;
 }
 
-/* Customer Support */
+/* Contact  */
 
 #formContainer{
   width: 50%;
@@ -355,7 +387,7 @@ li a{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color:#fce4ec;
+  background-color:#F7E1E3;
   border-radius: 10px;
   box-shadow: 10px 5px 10px pink;
   padding: 20px;
