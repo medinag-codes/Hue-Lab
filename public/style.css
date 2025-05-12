@@ -199,6 +199,10 @@ footer li a{
   align-items: center;
 }
 
+.buttonContainer a{
+  color: black;
+}
+
 #mainHeader{
   height: 79px;
 }
