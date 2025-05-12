@@ -34,7 +34,7 @@
     <h1>Profile</h1>
   </div>
   <div class="container">
-    <div class="profile">
+    <div class=" hidden profile">
       <div class="col-sm-6">
         <div>
             <h3><span class="fa fa-user"></span><% user.local.name %></h3>
@@ -45,26 +45,6 @@
                   <span class="hidden"><strong>password</strong>: <%= user.local.password %></span>
                   <strong>email</strong>: <span id="email"><%= user.local.email %></span><br>
                   <strong>number of formulas</strong>: <span id="numOfFormulas"></span><br>
-                  <strong>favorite Formula</strong>: <span id="">
-                    <div id="favoriteFormula">
-                    <% for( let i = 0; i < formulas.length; i++ ) { %>
-                      <% if (formulas[i].favorite == true){ %>
-                      <li class="formulaTiles" style="background-color: <%= formulas[i].hex %> ;">
-                        <div class="infoContainer">
-                          <p id="name"><%= formulas[i].name %></p>
-                          <p><%= formulas[i].hex %></p>
-                          
-                        </div>
-                        <div class="iconsContainer">
-                          <button class="btn btn-primary fa fa-star" type="submit"></button>
-                          <button class="btn btn-primary fa" type="submit">Order</button>
-                          <button class="btn btn-primary fa fa-trash" type="submit"></button>
-                        </div>
-                      </li>
-                      <% } %>
-                    <% } %>
-                    </div>
-                  </span><br>
                 </p>
             <% } else { %>
                 <a href="/connect/local" class="btn btn-default">Connect Local</a>
@@ -72,49 +52,52 @@
         </div>
       </div>
     </div>
-    <div class="container">
-      <h2>Your Formulas</h2>
-      <a class="btn btn-sm" href="/formulation">New Formula</a>
+    <div class="formulasContainer">
+      <div class="titleDiv">
+        <h2>Your Formulas</h2>
+        <a class="btn btn-sm" href="/formulation">New Formula</a>
+      </div>
       <div id="yourFormulas">
           <ul id="formulaList">
               <% for( let i = 0; i < formulas.length; i++ ) { %>
                 <% if (formulas[i].isDeleted == false){ %>
                 <li class="formulaTiles" style="background-color: <%= formulas[i].hex %> ;">
                   <div class="infoContainer">
-                    <p id="name"><%= formulas[i].name %></p>
-                    <p><%= formulas[i].hex %></p>
+                    <div class="infoTitles">
+                      <p id="name"><%= formulas[i].name %></p>
+                      <p><%= formulas[i].hex %></p>
+                    </div>
                     <div>
                       <canvas id="myChart"></canvas>
-                     
+                      <%let labels = formulas[i].formula.map( c => c.pigment) %>
+                      <%let data = formulas[i].formula.map( c => parseFloat(c.percent)) %>
 
-<%let labels = formulas[i].formula.map(c=>c.pigment) %>
-<%let data = formulas[i].formula.map(c=>parseFloat(c.percent)) %>
+                      <%let chartData = {
+                        labels: labels,
+                        datasets: [{
+                          // label: 'My First Dataset',
+                          data: data,
+                          backgroundColor: [
+                            
+                            'rgb(255, 255, 255)',
+                            'rgb(181, 15, 12)',
+                            'rgb(255, 217, 0)', 
+                            'rgb(0, 0, 0',
+                          ],
+                          hoverOffset: 4
+                        }]
+                      };%>
 
-<%let chartData = {
-  labels: labels,
-  datasets: [{
-    // label: 'My First Dataset',
-    data: data,
-    backgroundColor: [
-      'rgb(255, 99, 132)',
-      'rgb(54, 162, 235)',
-      'rgb(255, 205, 86)'
-    ],
-    hoverOffset: 4
-  }]
-};%>
+                      <% const config = {
+                        type: 'pie',
+                        data: chartData,
+                      };%>
 
-<% const config = {
-  type: 'pie',
-  data: chartData,
-};%>
-
-<p id="chartData" class="hidden"><%- JSON.stringify(config) %></p>
+                      <p id="chartData" class="hidden"><%- JSON.stringify(config) %></p>
                     </div>
-                  </div>
-                  <div class="iconsContainer">
-                    <button class="btn btn-primary fa fa-star" type="submit"></button>
-                    <button class="btn btn-primary fa fa-trash" type="submit"></button>
+                    <div class="iconsContainer">
+                      <button class="btn btn-primary fa fa-trash" type="submit"></button>
+                    </div>
                   </div>
                 </li>
                 <% } %>

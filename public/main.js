@@ -48,7 +48,7 @@ async function pickColor() {
 
 console.log(hex)
 console.log(result.sRGBHex)
-hex = "#fcad82"
+
 const uri = '/formula/' + hex.replace("#", "")
 console.log(uri)
     // fetch hex colors from MongDB and compare if hex is there
@@ -120,8 +120,7 @@ function saveFormula(){
       'name' : name,
       'hex': hex,
       'formula': formula,
-      'isDeleted' : false,
-      'favorite': false
+      'isDeleted' : false
     })
   }).then(data => {
     console.log(data)

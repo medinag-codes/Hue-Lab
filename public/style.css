@@ -129,13 +129,6 @@ nav li{
   font-size: 3rem;
 }
 
-/* footer{
-  height: 300px;
-  width: 100%;
-  background-color: black;
-  color: white;
-} */
-
 ul{
   display: grid;
   grid-template-columns: auto auto auto auto;
@@ -174,6 +167,7 @@ li a{
 }
 
 #mainTop{
+  width: 100%;
   height: 80%;
   display: flex;
 }
@@ -181,16 +175,26 @@ li a{
   width: 70%;
   display: flex;
   flex-direction: column;
+  margin-top: 200px;
   padding: 25px 50px;
 }
 
-.titleSection button{
-  width: 15%;
+.titleSection a{
+  margin-top: 15px;
+  width: 50%;
+}
+
+.titleSection h1{
+  font-size: 2.5em;
+}
+
+.titleSection h2{
+  font-size: 1.5em;
 }
 
 .imageSection{
   height: 100%; 
-  width: 30%;
+  width: 60%;
 }
 
 .imageSection img{
@@ -221,7 +225,6 @@ li a{
 }
 
 #productSection{
-  height: 600px;
   width: 100%;
   display:flex;
   flex-direction: column;
@@ -229,9 +232,20 @@ li a{
 }
 
 #howItWorks{
-  width: 95%;
-  height: 250px;
-  border-radius: 15px;
+  display: flex;
+  height: 800px;
+}
+
+#howItWorks div{
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5em;
+}
+
+#howItWorks div ul{
+  display: flex;
+  flex-direction: column;
 }
 
 /* section pages */
@@ -265,7 +279,6 @@ li a{
 
 .container{
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 50px 25px;
@@ -280,6 +293,7 @@ li a{
   background-color: #ffc1cc;
   border: none;
   color: black;
+  font-size: 1em;
 }
 
 .btn:hover, .btn-pink:hover {
@@ -314,8 +328,8 @@ li a{
 }
 
 #picture{
-  width: 300px;
-  height: 225px;
+  width: 550px;
+  height: 500px;
 }
 
 #swatch{
@@ -335,7 +349,6 @@ li a{
 
 #cameraContainer{
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
@@ -343,19 +356,25 @@ li a{
 
 
 /* Profile */
-.profile{
-  height: 300px;
-  width: 100%;
-  border: 1px solid black;
-  padding: 10px;
-  border-radius: 10px;
-}
-.profile div{
+.formulasContainer{
   width: 100%;
 }
 
-#yourFormulas{
+.titleDiv{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+.titleDiv h2{
+  font-size: 2.5em;
+}
+
+#yourFormulas ul{
+  width: 100%;
   margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;;
 }
 
 #formulaList{
@@ -363,12 +382,13 @@ li a{
 }
 
 .formulaTiles{
-  height: 200px;
-  width: 200px;
+  height: 450px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 5%;
+  border: 2px solid black;
 }
 
 .formulaTiles p{
@@ -377,13 +397,23 @@ li a{
 }
 
 .infoContainer{
-  margin:20px 0 75px 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.infoTitles{
+  font-size: 1.5em;
+  color: white;
+  text-shadow: 1px 1px 2px black;
 }
 
 .iconsContainer{
-  display: flex; 
-  justify-content:space-between;
-  gap: 5px;
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+  padding: 0 5% 5%;
 }
 
 /* About Us */
@@ -395,7 +425,7 @@ li a{
   font-size: 1.5rem;
   border: 2px solid black; 
   border-radius: 15px;
-  padding: 20px;
+  padding: 25px 100px 100px;
 }
 
 /* Contact  */
@@ -409,12 +439,18 @@ li a{
   background-color:#F7E1E3;
   border-radius: 10px;
   box-shadow: 10px 5px 10px pink;
-  padding: 20px;
+  padding: 25px;
+  margin-top: 50px;
+}
+
+#contactHeader{
+  font-size: 1.5em;
 }
 
 #hueLabImg{
   height: 300px;
-  width: 300px;;
+  width: 300px;
+  padding: 30px;
 }
 
 #contactForm{

@@ -59,7 +59,7 @@ module.exports = function(app, passport, db) {
 // formula routes ===============================================================
 
 app.post('/formula',(req, res) => {
-  db.collection('formula').save({email: req.body.email, name: req.body.name, hex: req.body.hex, formula: req.body.formula, isDeleted: false, favorite: false, createdAt: new Date()}, (err, result) => {
+  db.collection('formula').save({email: req.body.email, name: req.body.name, hex: req.body.hex, formula: req.body.formula, isDeleted: false, createdAt: new Date()}, (err, result) => {
     if (err) return console.log(err)
     console.log('saved to database')
     // res.redirect('/profile')
@@ -73,22 +73,6 @@ app.put('/formula', (req, res) => {
   .findOneAndUpdate({name: req.body.name}, {
     $set: {
       isDeleted: true
-    }
-  }, {
-    sort: {_id: -1},
-    upsert: true
-  }, (err, result) => {
-    if (err) return res.send(err)
-    res.send(result)
-  })
-})
-
-app.put('/formula', (req, res) => {
-  console.log(req.body)
-  db.collection('formula')
-  .findOneAndUpdate({name: req.body.name}, {
-    $set: {
-      favorite: true
     }
   }, {
     sort: {_id: -1},
