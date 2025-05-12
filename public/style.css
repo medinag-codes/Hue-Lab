@@ -144,6 +144,18 @@ li a{
   color: black;
 }
 
+footer{
+  width: 100%;
+  height: 250px;
+  background-color: black;
+  color: white;
+  margin-top: 25px;
+}
+
+footer li a{
+  color: white;
+}
+
 /* index.ejs */
 .buttonContainer{
   width: 15%;
@@ -155,7 +167,7 @@ li a{
 
 #mainContainer{
   width: 100%;
-  height: 100vh;
+  height: auto;
   background-color:white;
 }
 
@@ -172,7 +184,7 @@ li a{
   display: flex;
 }
 .titleSection{
-  width: 70%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   margin-top: 200px;
@@ -195,10 +207,13 @@ li a{
 .imageSection{
   height: 100%; 
   width: 60%;
+  display: flex;
+  align-items: flex-end;
 }
 
 .imageSection img{
-  height: 100%;
+  height: auto;
+  max-width: 100%;
 }
 
 #descriptionBanner{
@@ -213,6 +228,8 @@ li a{
   font-size: 30px;
   font-weight: 500;
   text-shadow: 1px 1px 2px black;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
 }
 
 #descriptionBanner ul{
@@ -233,11 +250,11 @@ li a{
 
 #howItWorks{
   display: flex;
-  height: 800px;
+  height: 600px;
 }
 
 #howItWorks div{
-  width: 25%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   font-size: 1.5em;
@@ -246,6 +263,43 @@ li a{
 #howItWorks div ul{
   display: flex;
   flex-direction: column;
+}
+
+#howItWorks img{
+  max-width: 100%
+}
+
+#bottleSection{
+  display: flex;
+  justify-content: flex-end;
+}
+
+#bottleSection div{
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+ 
+#bottleSection h3{
+  width: 100%;
+  font-size: 4em;
+  font-weight: bold;
+}
+
+#bottleSection img{
+  max-height: 100%;
+  max-width: 100%;
+}
+
+#steps{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#steps li{
+ text-align: left;
 }
 
 /* section pages */
