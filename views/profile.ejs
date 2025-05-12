@@ -90,19 +90,19 @@
                         }]
                       };%>
 
-<% const config = {
-  type: 'pie',
-  data: chartData,
-  options: {
-    plugins: {
-      legend: {
-        labels: {
-          color: 'white' // Change legend font color to white
-        }
-      }
-    }
-  }
-}; %>
+                      <% const config = {
+                        type: 'pie',
+                        data: chartData,
+                        options: {
+                          plugins: {
+                            legend: {
+                              labels: {
+                                color: 'white' // Change legend font color to white
+                              }
+                            }
+                          }
+                        }
+                      }; %>
 
                       <p id="chartData" class="hidden"><%- JSON.stringify(config) %></p>
                     </div>
