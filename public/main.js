@@ -54,18 +54,13 @@ console.log(uri)
     // fetch hex colors from MongDB and compare if hex is there
  fetch(uri, {
           method: 'get',
-
-          // headers: {
-          //   'Content-Type': 'application/json'
-          // },
-          // body: JSON.stringify({
-          //   'hex': hex
-          // })
         }).then(res => res.json())
           .then(function (data) {
           console.log(data)
           document.querySelector('#matchResults #name').innerText = data[0].name
           document.querySelector('#matchResults #formula').innerText = data[0].formula.map(obj => JSON.stringify(obj))
+          document.querySelector('#nameContainer').classList.add('hidden')
+          document.querySelector('#perfectMatch').classList.remove('hidden')
         })
      
 
@@ -73,6 +68,7 @@ console.log(uri)
     document.querySelector('#swatchContainer').classList.remove('hidden')
     document.querySelector('#nameContainer').classList.remove('hidden')
     document.querySelector('#matchContainer').classList.add('hidden')
+    
   } catch (err) {
     console.error(err);
   }

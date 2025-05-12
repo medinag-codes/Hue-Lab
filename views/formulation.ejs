@@ -25,6 +25,7 @@
     </ul>
     <div class="buttonContainer">
       <a href="/profile" class="fa fa-user"></a>
+      <a href="/profile" class="fa fa-shopping-cart"></a>
       <a href="/logout" class="btn btn-outline-light btn-sm" id="logoutBtn">Logout</a>
     </div>
     <!-- add shopping cart -->
@@ -32,8 +33,8 @@
   <div class="" id="title">
     <h1>Formulation</h1>
   </div>
-  <div class="py-4">
-    <div class="hidden col-sm-6">
+  <div class="hidden py-4">
+    <div class="col-sm-6">
       <div class="well">
           <h3><span class="fa fa-user"></span> Local</h3>
           <% if (user.local.email) { %>
@@ -47,43 +48,46 @@
               <a href="/connect/local" class="btn btn-default">Connect Local</a>
           <% } %>
       </div>
+    </div>
   </div>
   <div class="formulationContainer">
-     <!-- camera to capture hex color from skin -->
-      <div  id="cameraContainer">
-        <h2 class="mb-3">Find Your Shade</h2>
+    <!-- camera to capture hex color from skin -->
+    <div  id="cameraContainer">
+      <h2 class="mb-3">Find Your Shade</h2>
 
-        <div id="camera-wrapper">
-          <video id="video" autoplay></video>
-          <div id="face-outline"></div>
-        </div>
-
-        <button class="btn btn-pink captureBtn">Capture Image</button>
-      </div>
-        <!-- eyedropper tool to select the pixel to determine your formula from -->
-      <div class="hidden" id="matchContainer">
-        <h3>Pick a color using the eyedropper</h3>
-        <canvas id="picture"></canvas>
-        
-        <button class="btn btn-pink" id="pickColor">Pick Color</button>
-      </div>
-      
-      <div class="hidden" id="swatchContainer">
-        <div id="swatch"></div>
-        <p id="hexLabel"></p>
-
-        <p class="" id="matchResults">
-          <span id="name"></span>
-          <span id="formula"></span>
-        </p>
+      <div id="camera-wrapper">
+        <video id="video" autoplay></video>
+        <div id="face-outline"></div>
       </div>
 
-      <div class="hidden" id="nameContainer">
-        <h3>Give your formula a name</h3>
-        <input id="shadeName" type="text" value="" placeholder="Shade Name i.e Caramel Cutie">
+      <button class="btn btn-pink captureBtn">Capture Image</button>
+    </div>
+      <!-- eyedropper tool to select the pixel to determine your formula from -->
+    <div class="hidden" id="matchContainer">
+      <h3>Select Your Shade</h3>
+      <canvas id="picture"></canvas>
+      <p>Pick a color using the eyedropper tool below</p>
+      <button class="btn btn-pink" id="pickColor">Pick Color</button>
+    </div>
+    
+    <div class="hidden" id="swatchContainer">
+      <h3>Your Perfect Hue</h3>
+      <div id="swatch"></div>
+      <p id="hexLabel"></p>
 
-        <button id="formulate" type="submit" class="btn btn-pink">Formulate</button>
-      </div>
+      <h3 id="perfectMatch" class="hidden">We found a perfect match!</h3>
+
+      <p class="" id="matchResults">
+        <span id="name"></span>
+        <span id="formula"></span>
+      </p>
+    </div>
+
+    <div class="hidden" id="nameContainer">
+      <h3>Give your formula a name</h3>
+      <input id="shadeName" type="text" value="" placeholder="Shade Name i.e Caramel Cutie">
+
+      <button id="formulate" type="submit" class="btn btn-pink">Formulate</button>
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
