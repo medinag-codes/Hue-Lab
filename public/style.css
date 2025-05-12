@@ -121,15 +121,30 @@ nav{
 
 nav ul{
   display: flex;  
+  justify-content: center;
   align-items: center;
   gap: 25px;
-
+  margin-bottom: 0;
+  padding: 0;
 }
 
 nav li{
   width: auto;
   height: auto;
   font-size: 20px;
+}
+
+.buttonContainer{
+  width: 25%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  align-items: center;
+}
+
+.buttonContainer a{
+  color: black;
 }
 
 #title h1{
@@ -192,17 +207,6 @@ footer li a{
   align-items: flex-end;
 }
 /* index.ejs */
-.buttonContainer{
-  width: 25%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.buttonContainer a{
-  color: black;
-}
-
 #mainHeader{
   height: 79px;
 }
@@ -384,11 +388,6 @@ footer li a{
   justify-content: center;
   align-items: center;
   padding: 50px 25px;
-}
-
-#logoutBtn{
-  width: 50%;
-  align-self: flex-end;
 }
 
 .btn, .btn-pink {
