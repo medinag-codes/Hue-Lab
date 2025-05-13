@@ -443,7 +443,7 @@ footer li a{
 
 .formulationContainer{
   width: 100%;
-  height: 700px;
+  height: 800px;
   display: flex; 
   flex-direction: column;
   align-items: center;
@@ -466,15 +466,16 @@ footer li a{
 }
 
 #matchResults{
-  width: 50%;
+  width: 300px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start
 }
 
 #matchResults section{
   display: flex;
   flex-direction: column;
+  margin-top: 15px;
 }
 
 /* Profile */
