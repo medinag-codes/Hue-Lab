@@ -1,7 +1,5 @@
 var trash = document.querySelectorAll(".fa-trash");
 
-console.log(trash)
-
 // function to delete formula from database
 Array.from(trash).forEach(function(element) {
   element.addEventListener('click', function(e){
@@ -23,6 +21,7 @@ Array.from(trash).forEach(function(element) {
   })
 })
 
+//add chart data of formulation to each formulaTile
 let formulaTiles = Array.from(document.querySelectorAll('.formulaTiles'))
 for(let i= 0; i < formulaTiles.length; i++){
   const ctx = formulaTiles[i].querySelector('#myChart');

@@ -3,66 +3,7 @@
   margin: 0;
   box-sizing: border-box;
 }
-/* fonts */
-.zilla-slab-light {
-  font-family: "Zilla Slab", serif;
-  font-weight: 300;
-  font-style: normal;
-}
 
-.zilla-slab-regular {
-  font-family: "Zilla Slab", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.zilla-slab-medium {
-  font-family: "Zilla Slab", serif;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.zilla-slab-semibold {
-  font-family: "Zilla Slab", serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.zilla-slab-bold {
-  font-family: "Zilla Slab", serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.zilla-slab-light-italic {
-  font-family: "Zilla Slab", serif;
-  font-weight: 300;
-  font-style: italic;
-}
-
-.zilla-slab-regular-italic {
-  font-family: "Zilla Slab", serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.zilla-slab-medium-italic {
-  font-family: "Zilla Slab", serif;
-  font-weight: 500;
-  font-style: italic;
-}
-
-.zilla-slab-semibold-italic {
-  font-family: "Zilla Slab", serif;
-  font-weight: 600;
-  font-style: italic;
-}
-
-.zilla-slab-bold-italic {
-  font-family: "Zilla Slab", serif;
-  font-weight: 700;
-  font-style: italic;
-}
 /* body and all pages styling */
 body{
   word-wrap:break-word;
@@ -70,7 +11,7 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: Arial, "Zilla Slab";
+  font-family: Arial;
 }
 
 .hidden{
@@ -355,6 +296,7 @@ footer li a{
   color: rgb(95, 54, 29);
   text-shadow: 2px 2px 5px white;
 } */
+ 
 /* section pages */
 #title{
   height: 150px;

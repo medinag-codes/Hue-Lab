@@ -15,6 +15,7 @@ module.exports = function(app, passport, db) {
     res.render('contact.ejs');
   });
     // FORMULATION SECTION =========================
+    //check the database for hex color 
     app.get('/formula/:hex', isLoggedIn, function(req, res) {
       db.collection('formula').find({hex: `#${req.params.hex}`}).toArray((err, result) => {
         if (err) return console.log(err)
@@ -35,6 +36,7 @@ module.exports = function(app, passport, db) {
     });
 
     // PROFILE SECTION =========================
+    //check if user has any formulas stored in database, if <1, redirect to formulation page, otherwise go to profile page
     app.get('/profile', isLoggedIn, function(req, res) {
       db.collection('formula').find({email: req.user.local.email}).toArray((err, result) => {
         if (err) return console.log(err)
@@ -67,6 +69,7 @@ app.post('/formula',(req, res) => {
   })
 })
 
+//delete a formula from profile, but keep it in the database for easier matching later
 app.put('/formula', (req, res) => {
   console.log(req.body)
   db.collection('formula')

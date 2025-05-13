@@ -1,4 +1,3 @@
-
 const video = document.getElementById('video');
 const picture = document.getElementById('picture');
 const canvas = document.getElementById('canvas');
@@ -22,6 +21,7 @@ if(navigator.mediaDevices.getUserMedia){
 document.querySelector('.captureBtn').addEventListener('click', captureColor)      
 function captureColor() {
 ctx.drawImage(video, 0, 0, picture.width, picture.height);
+//hide/unhide different sections of the workflow for easier UX experience
 document.querySelector('#cameraContainer').classList.add('hidden')
 document.querySelector('#matchContainer').classList.remove('hidden')
 }
@@ -37,6 +37,7 @@ async function pickColor() {
   const eyeDropper = new EyeDropper();
   try {
     const result = await eyeDropper.open();
+    //part of the eyedropper API sRGBHex is how you get the hex color of the pixel selected
     hex = result.sRGBHex;
     document.getElementById('swatch').style.backgroundColor = hex;
     rgb = hexToRgb(hex);
@@ -136,9 +137,11 @@ function saveFormula(){
 //function to convert hex to rgb format
 function hexToRgb(hex) {
   hex = hex.replace("#", "");
+  //check for 3 code shorthand
   if (hex.length === 3) {
     hex = hex.split('').map(h => h + h).join('');
   }
+  //turns the hex string into a base-16 number and use bitwise operations
   const bigint = parseInt(hex, 16);
   const r = (bigint >> 16) & 255;
   const g = (bigint >> 8) & 255;
