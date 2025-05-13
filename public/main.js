@@ -58,9 +58,17 @@ console.log(uri)
           .then(function (data) {
           console.log(data)
           document.querySelector('#matchResults #name').innerText = data[0].name
-          document.querySelector('#matchResults #formula').innerText = data[0].formula.map(obj => JSON.stringify(obj))
+          document.querySelector('#pigmentOne').innerText = data[0].formula[0].pigment
+          document.querySelector('#percentOne').innerText = data[0].formula[0].percent
+          document.querySelector('#pigmentTwo').innerText = data[0].formula[1].pigment
+          document.querySelector('#percentTwo').innerText = data[0].formula[1].percent
+          document.querySelector('#pigmentThree').innerText = data[0].formula[2].pigment
+          document.querySelector('#percentThree').innerText = data[0].formula[2].percent
+          document.querySelector('#pigmentFour').innerText = data[0].formula[3].pigment
+          document.querySelector('#percentFour').innerText = data[0].formula[3].percent
+          // document.querySelector('#matchResults #formula').innerText = data[0].formula.map(obj => JSON.stringify(obj))
           document.querySelector('#nameContainer').classList.add('hidden')
-          document.querySelector('#perfectMatch').classList.remove('hidden')
+          document.querySelector('#matchResults').classList.remove('hidden')
         })
      
 

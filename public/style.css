@@ -472,6 +472,11 @@ footer li a{
   align-items: center;
 }
 
+#matchResults section{
+  display: flex;
+  flex-direction: column;
+}
+
 /* Profile */
 .formulasContainer{
   width: 100%;
