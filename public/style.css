@@ -374,6 +374,7 @@ footer li a{
 #picture{
   width: 550px;
   height: 500px;
+  object-fit: cover;
 }
 
 #swatch{
