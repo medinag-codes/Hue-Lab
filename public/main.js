@@ -8,7 +8,10 @@ let hex = ""
 
 // 🎥 Start camera
 if(navigator.mediaDevices.getUserMedia){
-    navigator.mediaDevices.getUserMedia({video:true})
+    navigator.mediaDevices.getUserMedia({video:{
+      width: { ideal: 1280 },
+      height: { ideal: 720 }
+    }})
         .then(function(stream){
             video.srcObject = stream;
         }) 
@@ -20,7 +23,11 @@ if(navigator.mediaDevices.getUserMedia){
 //capture picture from video and draw it in the canvas
 document.querySelector('.captureBtn').addEventListener('click', captureColor)      
 function captureColor() {
-ctx.drawImage(video, 0, 0, picture.width, picture.height);
+  // Match canvas size to video resolution
+  picture.width = video.videoWidth;
+  picture.height = video.videoHeight;
+
+  ctx.drawImage(video, 0, 0, picture.width, picture.height);
 //hide/unhide different sections of the workflow for easier UX experience
 document.querySelector('#cameraContainer').classList.add('hidden')
 document.querySelector('#matchContainer').classList.remove('hidden')
